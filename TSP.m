@@ -13,25 +13,25 @@ coords = ReadFromSample(filename);
 % remain the same)
 toPermute = coords(2:end);
 
+routes(1:factorial(size(coords,2)-1),1) = coords(1);
 % Find permutations
 disp('Starting Permutations');
-subroutes = perms(toPermute);
+routes(:,2:size(coords,2)) = perms(toPermute);
 disp('Permutations Done');
-
-% Append starting city to start and end of array
-routes(1:size(subroutes,1),1) = coords(1);
-routes(:,2:(size(subroutes,2)+1)) = subroutes;
-routes(:,size(subroutes,2)+2) = coords(1);
-paths = routes;
 
 dist_totals = zeros(size(routes,1),1);
 
 % Calculate distances for each route
 for j = 1:size(routes,1)
     dist = 0;
-    for k = 1:(size(routes,2)-1)
-        coord1 = routes(j,k);
-        coord2 = routes(j,k+1);
+    for k = 1:(size(routes,2))
+        if k == size(routes,2)
+            coord1 = routes(j,k);
+            coord2 = routes(j,1);
+        else
+            coord1 = routes(j,k);
+            coord2 = routes(j,k+1);
+        end
         dist = dist + Distance(coord1, coord2);
     end
     dist_totals(j) = dist;
@@ -39,6 +39,7 @@ end
 
 % Get path with shortest distance
 [~, win_index] = min(dist_totals);
+clearvars dist_totals
 win = routes(win_index, :);
 
 % Plot points and winning path
