@@ -15,10 +15,9 @@ i = 1;
 while ~feof(f)
     line = fgetl(f);
     c = strsplit(line);
-    name = 'Node_' + string(c(1));
-    x = str2double(c(2));
-    y = str2double(c(3));
-    coords(i) = Coordinate(name,x,y);
+    x = single(str2double(c(2)));
+    y = single(str2double(c(3)));
+    coords(i) = Coordinate(x,y);
     i = i + 1;
 end
 fclose(f);
