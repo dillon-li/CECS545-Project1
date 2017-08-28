@@ -1,7 +1,7 @@
 % Simple Distance function
-function [ distance ] = Distance( coord1, coord2 )
+function [ distance ] = Distance( x1, y1, x2, y2 )
 
-distance = sqrt((coord2.x - coord1.x)^2 + (coord2.y - coord1.y)^2);
+distance = sqrt((x2 - x1)^2 + (y2 - y1)^2);
 
 end
 
