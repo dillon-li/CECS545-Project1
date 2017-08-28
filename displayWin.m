@@ -12,7 +12,7 @@ for i = 1:size(winningPath,2)
 end
 
 distString = ['Distance of shortest path: ' char(string(distMin))];
-disp(distString);git 
+disp(distString); 
 
 end
 
