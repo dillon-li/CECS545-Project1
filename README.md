@@ -1,5 +1,5 @@
 # TSP
-Traveling Salesman for AI class. Done in Matlab 
+Traveling Salesman for AI class. Done in Matlab.   
 Refer to assignment pdf for details on the assignment
 
 # Running the Code
