@@ -1,4 +1,4 @@
-function [ dist_totals, paths ] = TSP( filename )
+function [ distMin, winningPath ] = TSP( filename )
 % Main Traveling Salesman Problem
 % Brute forces to find every route possible
 
