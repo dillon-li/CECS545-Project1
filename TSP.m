@@ -69,13 +69,14 @@ winningPath = [winningPath coords(1)];
 
 % Append starting city to end
 pathIndices = [pathIndices 1];
+
+time = toc; % Time after distance and permutations calculated
+
 % Write winning path to console
-displayWin(pathIndices, winningPath, distMin);
+displayWin(pathIndices, winningPath, distMin, time);
 
 % Plot points and winning path
 PlotPoints(coords, winningPath);
-
-toc;
 
 end
 
