@@ -8,9 +8,12 @@ for i = 1:size(coords,2)
 end
 
 % Plot points
+figure;
 plot(x(1),y(1), '*'); % Start
 hold on; % Keep starting point marker
 plot(x(2:end),y(2:end),'o');
+plotTitle = ['TSP: ' char(string(size(coords,2))) ' cities'];
+title(plotTitle);
 
 for i = 1:(size(winning_path,2))
     if i == size(winning_path,2)
@@ -23,5 +26,7 @@ for i = 1:(size(winning_path,2))
     xcoords = [coord1.x coord2.x];
     ycoords = [coord1.y coord2.y];
     line(xcoords, ycoords);
+end
+
 end
 
