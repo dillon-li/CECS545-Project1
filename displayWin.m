@@ -1,4 +1,4 @@
-function [ ] = displayWin( pathIndices, winningPath, distMin )
+function [ ] = displayWin( pathIndices, winningPath, distMin, time )
 % Prints the winning path to the console
 disp('Winning Path is as follows:');
 
@@ -24,7 +24,13 @@ end
 
 distString = ['Distance of shortest path: ' char(string(distMin))];
 disp(distString); 
-fprintf(f, distString);
+fprintf(f, [distString '\n']);
+
+timeString = ['Program took ' char(string(time)) ' seconds.'];
+disp(timeString);
+fprintf(f, timeString);
+
+fclose(f);
 
 end
 
