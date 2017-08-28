@@ -9,6 +9,12 @@ tic;
 % Parse coordinates from sample .tsp file
 coords = ReadFromSample(filename);
 
+% Try making single matrix instead of class matrix
+for i = 1:size(coords,2)
+    x(i) = coords(i).x;
+    y(i) = coords(i).y;
+end
+
 % Create indexes for permutations for everything aside from the first city
 for i = 2:size(coords,2)
     toPermute(i-1) = i;
@@ -28,16 +34,22 @@ for j = 1:size(subroutes,1)
     dist = 0;
     for k = 1:(size(subroutes,2)+1)
         if k == 1
-            coord1 = coords(1);
-            coord2 = coords(subroutes(j,1));
+            x1 = x(1); y1 = y(1);
+            x2 = x(subroutes(j,1)); y2 = y(subroutes(j,1));
+            % coord1 = coords(1);
+            % coord2 = coords(subroutes(j,1));
         elseif k == size(subroutes,2)+1
-            coord1 = coords(subroutes(j,k-1));
-            coord2 = coords(1);
+            x1 = x(subroutes(j,k-1)); y1 = y(subroutes(j,k-1));
+            x2 = x(1); y2 = y(1);
+            % coord1 = coords(subroutes(j,k-1));
+            % coord2 = coords(1);
         else
-            coord1 = coords(subroutes(j,k-1));
-            coord2 = coords(subroutes(j,k));
+            x1 = x(subroutes(j,k-1)); y1 = y(subroutes(j,k-1));
+            x2 = x(subroutes(j,k)); y2 = y(subroutes(j,k));
+            % coord1 = coords(subroutes(j,k-1));
+            % coord2 = coords(subroutes(j,k));
         end             
-        dist = dist + Distance(coord1, coord2);
+        dist = dist + Distance(x1,y1,x2,y2);
     end
     % Replace lowest distance if better path found
     if dist < distMin
