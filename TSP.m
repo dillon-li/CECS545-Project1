@@ -55,6 +55,11 @@ end
 % Slap starting city on the end
 winningPath = [winningPath coords(1)];
 
+% Append starting city to end
+pathIndices = [pathIndices 1];
+% Write winning path to console
+displayWin(pathIndices, winningPath, distMin);
+
 % Plot points and winning path
 PlotPoints(coords, winningPath);
 
