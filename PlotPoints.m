@@ -12,7 +12,7 @@ figure;
 plot(x(1),y(1), '*'); % Start
 hold on; % Keep starting point marker
 plot(x(2:end),y(2:end),'o');
-plotTitle = ['TSP: ' char(string(size(coords,2))) ' cities'];
+plotTitle = ['TSP ' char(string(size(coords,2))) ' cities'];
 title(plotTitle);
 
 for i = 1:(size(winning_path,2))
@@ -27,6 +27,10 @@ for i = 1:(size(winning_path,2))
     ycoords = [coord1.y coord2.y];
     line(xcoords, ycoords);
 end
+
+% Save figure as a png
+filename = ['Deliverables/' plotTitle];
+print(filename, '-dpng');
 
 end
 
