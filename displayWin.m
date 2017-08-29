@@ -15,8 +15,8 @@ for i = 1:size(winningPath,2)
     xString = char(string(winningPath(i).x));
     yString = char(string(winningPath(i).y));
     cityNum = char(string(pathIndices(i)));
-    coordinate = ['(' xString ',' yString ')'];
-    line = [char(string(i)) '.' coordinate '(City no. ' cityNum ')'];
+    coordinate = ['(' xString ', ' yString ')'];
+    line = [char(string(i)) '.' coordinate ' (City no. ' cityNum ')'];
     disp(line);
     fprintf(f, line);
     fprintf(f, '\n');
