@@ -1,6 +1,7 @@
 # TSP
 Traveling Salesman for AI class. Done in Matlab.   
-Refer to assignment pdf for details on the assignment
+Refer to assignment pdf for details on the assignment.
+Brute Forces TSP, so don't count on it working for above 13 cities.
 
 # Running the Code
 Keep the same project structure as the git repository.  
